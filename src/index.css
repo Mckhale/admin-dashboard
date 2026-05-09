@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-black-secondary text-text-primary font-sans antialiased;
+  }
+}
+
+@layer components {
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-text-secondary hover:bg-white/5 hover:text-purple-primary transition-all duration-300 font-medium relative overflow-hidden;
+  }
+  
+  .sidebar-link-active {
+    @apply bg-purple-primary text-white shadow-[0_0_20px_rgba(124,58,237,0.3)] border-transparent;
+  }
+
+  .sidebar-link-active::before {
+    content: '';
+    @apply absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-purple-primary rounded-r-full shadow-[0_0_10px_rgba(139,92,246,0.5)];
+  }
+  
+  .card {
+    @apply bg-black-card border-border rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300;
+  }
+}
+
