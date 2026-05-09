@@ -5,7 +5,9 @@ import {
   UsersIcon, 
   FireIcon, 
   AcademicCapIcon, 
-  BookOpenIcon
+  BookOpenIcon,
+  PlusIcon,
+  ArrowUpTrayIcon
 } from '@heroicons/react/24/outline';
 
 export const DashboardContent = () => {

@@ -10,10 +10,11 @@ const SettingsPage = () => {
     analytics: true,
     maintenanceMode: false
   });
-  const { addNotification } = useAppContext();
+  const { darkMode, toggleDarkMode, toggle, addNotification } = useAppContext();
 
   const handleToggle = (key) => {
     setSettings(prev => ({ ...prev, [key]: !prev[key] }));
+    toggle(key);
     addNotification(`${key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())} toggled ${!settings[key] ? 'ON' : 'OFF'}`);
   };
 
@@ -39,6 +40,23 @@ const SettingsPage = () => {
     <div className="space-y-8 max-w-2xl">
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-black text-text-primary">System Settings</h1>
+      </div>
+
+      {/* Dark Mode Toggle */}
+      <div className="card p-8">
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h3 className="text-2xl font-black text-text-primary">Dark Mode</h3>
+            <p className="text-text-secondary">Toggle between light and dark themes</p>
+          </div>
+          <Switch
+            checked={darkMode}
+            onChange={toggleDarkMode}
+            className={`${darkMode ? 'bg-purple-primary' : 'bg-black-card/50'} relative inline-flex h-8 w-16 items-center rounded-full border-2 border-border/50 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-primary/50`}
+          >
+            <span className={`transform transition-transform ${darkMode ? 'translate-x-9' : 'translate-x-1'} w-6 h-6 bg-white rounded-full shadow-lg`} />
+          </Switch>
+        </div>
       </div>
 
       {/* Settings Groups */}
