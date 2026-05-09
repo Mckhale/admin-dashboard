@@ -7,7 +7,7 @@ const GamesPage = () => {
     matching: { timer: 60, difficulty: 'easy', rounds: 15 },
     rps: { timer: 15, difficulty: 'hard', rounds: 20 }
   });
-  const [records, _setRecords] = useState([
+  const [records] = useState([
     { id: 1, game: 'Quiz', player: 'John Doe', score: 92, date: '2024-01-15' },
     { id: 2, game: 'Matching', player: 'Jane Smith', score: 88, date: '2024-01-14' },
     { id: 3, game: 'RPS', player: 'Bob Johnson', score: 78, date: '2024-01-13' },
